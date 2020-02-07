@@ -30,32 +30,7 @@ The following table lists the configurable parameters for the `gogs` chart and t
 | `image.tag`                             | Container image tag to deploy             | `latest`                            |
 | `image.pullPolicy`                      | Container pull policy                     | `IfNotPresent`                      |
 | `replicas`                              | Number of pods                            | `1`                                 |
-| `existingConfigMap`                     | app.ini Configmap to use                  | `""`                                |
-| `gogs.appName`                          | Gogs site name                            | `Gogs`                              |
-| `gogs.runMode`                          | Run mode `prod|dev|test`                  | `prod`                              |
-| `gogs.domain`                           | Gogs domain                               | `example.com`                       |
-| `gogs.rootUrl`                          | Full URL to Gogs                          | `https://gogs.example.com`          |
-| `gogs.disableSsh`                       | Disable builtin SSH server                | `true`                              |
-| `gogs.startSshServer`                   | Start builtin SSH server                  | `false`                             |
-| `gogs.uploadMaxSize`                    | Max upload file size in MB                | `3`                                 |
-| `gogs.uploadMaxFiles`                   | Max files for an upload                   | `5`                                 |
-| `gogs.releaseMaxSize`                   | Max release file sizein MB                | `32`                                |
-| `gogs.releaseMaxFiles`                  | Max files in a release                    | `10`                                |
-| `gogs.secretKey`                        | Secret to keep data safe                  | `ekohM3ukooN3BeiXouveegh8lahPeel4`  |
-| `gogs.registerEmailConfirm`             | Registration email confirm                | `false`                             |
-| `gogs.disableRegistration`              | Disable account registration              | `false`                             |
-| `gogs.requireSigninView`                | Must signin to view                       | `true`                              |
-| `gogs.enableNotifyEmail`                | Enable email notifications                | `false`                             |
-| `gogs.enableReverseProxyAuthentication` | Enable reverse proxy authentication       | `false`                             |
-| `gogs.enableCaptcha`                    | Enable registration captcha               | `true`                              |
-| `database.type`                         | Types are `sqlite3|mysql|postgres`        | `sqlite3`                           |
-| `database.host`                         | Database host/IP                          | `127.0.0.1`                         |
-| `database.port`                         | Database port                             | `3306`                              |
-| `database.dbname`                       | Database name                             | `gogs`                              |
-| `database.dbUsername`                   | Database user                             | `gogs`                              |
-| `database.dbPassword`                   | Database password                         | `gogs`                              |
-| `database.sslMode`                      | SSL mode `only for postgres`              | `disable`                           |
-| `database.path`                         | Database path `only for sqlite3`          | `data/gogs.db`                      |
+| `appIniConfigMap`                       | app.ini Configmap to use                  | `""`                                |
 | `service.type`                          | Service type                              | `ClusterIP`                         |
 | `service.port`                          | Service port                              | `3000`                              |
 | `service.loadBalancerIP`                | Load balancer IP if `type=LoadBalancer`   | `""`                                |

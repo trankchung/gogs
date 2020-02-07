@@ -32,81 +32,9 @@ replicas: 1
 #      https://github.com/gogs/gogs/blob/master/conf/app.ini
 
 # You can provide your own custom app.ini setting instead
-# If existingConfigMap is provided, make sure it has a key name `app.ini`
+# If `appIniConfigMap` is provided, it must have a key name `app.ini`
 # and contain all required params that gogs requires.
-# Also, when provided, `gogs` key will be ignored.
-existingConfigMap: ""
-
-gogs:
-  # App name that shows on every page title
-  appName: Gogs
-
-  # Either "dev", "prod" or "test"
-  runMode: prod
-
-  # Domain where gogs is running
-  # Should match the domain of ingress.host
-  domain: example.com
-
-  # Complete URL with protocol where gogs can be reached
-  # Should match URL of ingress.host
-  rootUrl: https://gogs.example.com
-
-  # Disable gogs SSH feature
-  disableSsh: true
-
-  # Start gogs SSH server
-  # disableSsh should be false if this is set to true
-  startSshServer: false
-
-  # Upload max file fize in MB
-  uploadMaxSize: 3
-
-  # Maximum number of files per upload
-  uploadMaxFiles: 5
-
-  # Release max file size in MB
-  releaseMaxSize: 32
-
-  # Maximum number of files per release
-  releaseMaxFiles: 10
-
-  # Change to keep your data safe
-  secretKey: ekohM3ukooN3BeiXouveegh8lahPeel4
-
-  # User need to confirm e-mail for registration
-  registerEmailConfirm: false
-
-  # Does not allow register and admin create account only
-  disableRegistration: false
-
-  # User must sign in to view anything.
-  requireSigninView: true
-
-  # Mail notification
-  enableNotifyEmail: false
-
-  # More detail: https://github.com/gogits/gogs/issues/165
-  enableReverseProxyAuthentication: false
-
-  # Enable captcha validation for registration
-  enableCaptcha: true
-
-
-database:
-  # Either "mysql", "postgres" or "sqlite3"
-  type: sqlite3
-  host: 127.0.0.1
-  port: 3306
-  dbName: gogs
-  dbUsername: gogs
-  dbPassword: gogs
-
-  # For "postgres" only, either "disable", "require" or "verify-full"
-  sslMode: disable
-
-  # For "sqlite3" only
-  path: data/gogs.db
+appIniConfigMap: ""
 
 # Kubernetes configuration
 # For minikube, set this to NodePort, elsewhere use LoadBalancer

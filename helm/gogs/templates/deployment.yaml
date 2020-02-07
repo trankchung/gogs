@@ -43,8 +43,10 @@ spec:
           name: http
           protocol: TCP
         volumeMounts:
+        {{- if .Values.appIniConfigMap }}
         - name: config
           mountPath: /tmp
+        {{- end }}
         - name: data
           mountPath: /data
         livenessProbe:
@@ -66,16 +68,14 @@ spec:
           {{- toYaml . | nindent 10 }}
         {{- end }}
       volumes:
+      {{- if .Values.appIniConfigMap }}
       - name: config
         configMap:
-          {{- if .Values.existingConfigMap }}
-          name: {{ .Values.existingConfigMap }}
-          {{- else }}
-          name: {{ template "fullname" . }}
-          {{- end }}
+          name: {{ .Values.appIniConfigMap }}
           items:
           - key: app.ini
             path: app.ini
+      {{- end }}
       - name: data
       {{- if .Values.persistence.enabled }}
         persistentVolumeClaim:
