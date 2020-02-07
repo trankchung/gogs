@@ -14,7 +14,9 @@ This chart will do the following:
 
 ## Installing the Chart
 ```console
-$ helm install --name gogs https://raw.githubusercontent.com/trankchung/gogs/master/helm/gogs-1.0.0.tgz
+$ helm repo add trankchung https://raw.githubusercontent.com/trankchung/charts/master/
+$ helm repo update
+$ helm install --name gogs trankchung/gogs-1.0.0.tgz
 ```
 
 ## Configuration
